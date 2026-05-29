@@ -15,8 +15,12 @@
 </script>
 
 <div class="schedule-pomodoro-layout">
-  <PomodoroTimer bind:subjects bind:pomodoroConfig bind:pomodoroLogs />
-  <SchedulePlanner bind:subjects bind:schedule />
+  <div class="pomodoro-wrapper">
+    <PomodoroTimer bind:subjects bind:pomodoroConfig bind:pomodoroLogs />
+  </div>
+  <div class="planner-wrapper">
+    <SchedulePlanner bind:subjects bind:schedule />
+  </div>
 </div>
 
 <style>
@@ -27,13 +31,13 @@
     width: 100%;
   }
 
-  .schedule-pomodoro-layout > :first-child {
+  .pomodoro-wrapper {
     flex: 1 1 340px;
     min-width: 300px;
     max-width: 100%;
   }
 
-  .schedule-pomodoro-layout > :last-child {
+  .planner-wrapper {
     flex: 2 1 500px;
     min-width: 0;
     max-width: 100%;
