@@ -465,7 +465,7 @@
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: var(--gap);
-    height: calc(100vh - 120px);
+    height: calc(100dvh - 120px);
   }
 
   @media (max-width: 768px) {

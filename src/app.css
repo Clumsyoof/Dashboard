@@ -316,9 +316,7 @@
 }
 
 html, body {
-  height: 100%;
-  /* Lock document height so mobile browser address bar
-     showing/hiding never triggers a layout reflow */
+  /* Let the browser handle native scrolling */
 }
 
 body {
@@ -327,7 +325,7 @@ body {
   font-family: var(--font-family);
   line-height: 1.5;
   transition: background-color 0.2s ease, color 0.2s ease;
-  overflow: hidden; /* Scrolling happens inside main-content, not on body */
+  overflow-x: hidden; /* Prevent horizontal scroll natively */
   font-size: 14px;
 }
 
@@ -502,6 +500,10 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   transition: var(--transition);
   /* Eliminate tap delay */
   touch-action: manipulation;
+  /* Prevent blowout */
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* iOS Safari zooms in on any input with font-size < 16px.
@@ -598,10 +600,7 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, 
 /* Core Layout Shell */
 .app-container {
   display: flex;
-  /* Use 100% height (from locked html/body) rather than 100vh
-     so mobile address bar cannot trigger layout shifts */
-  height: 100%;
-  overflow: hidden;
+  min-height: 100dvh; /* Better than 100vh for mobile address bar */
 }
 
 .main-content {
@@ -611,11 +610,8 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, 
   padding: var(--gap);
   margin-left: 200px; /* Sidebar offset */
   min-width: 0; /* Prevent flex children from overflowing */
-  max-width: 100%;
-  /* Scroll happens here, not on body */
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 100%;
+  max-width: 100vw;
+  /* Scroll natively */
 }
 
 @media (max-width: 768px) {
