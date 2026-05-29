@@ -358,10 +358,10 @@
   .calendar-nav button:hover { background: var(--focus); }
   .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
   .calendar-day-header { text-align: center; font-size: 0.65rem; font-weight: bold; color: var(--text-muted); padding: 4px 0; }
-  .calendar-day { background-color: var(--bg); border: 1px solid var(--border); border-radius: var(--border-radius-sm); min-height: 80px; padding: 4px; display: flex; flex-direction: column; cursor: pointer; transition: background-color 0.2s; }
+  .calendar-day { background-color: var(--bg); border: 1px solid var(--border); border-radius: var(--border-radius-sm); min-height: 80px; padding: 4px; display: flex; flex-direction: column; cursor: pointer; transition: background-color 0.2s; min-width: 0; }
   .calendar-day:hover { background-color: var(--focus); }
   .calendar-day.is-today { border-color: var(--accent); background-color: var(--bg-panel); }
-  .empty-day-slot { background-color: transparent; border: 1px dashed var(--border); opacity: 0.5; cursor: default; min-height: 80px; }
+  .empty-day-slot { background-color: transparent; border: 1px dashed var(--border); opacity: 0.5; cursor: default; min-height: 80px; min-width: 0; }
   .day-number { font-size: 0.7rem; font-weight: bold; color: var(--text-muted); margin-bottom: 4px; align-self: flex-end; }
   .calendar-blocks { display: flex; flex-direction: column; gap: 2px; overflow-y: auto; max-height: 60px; }
   .cal-block-item { font-size: 0.55rem; background-color: var(--bg-panel); border: 1px solid var(--border); border-left-width: 3px; border-left-style: solid; padding: 2px 4px; border-radius: 2px; display: flex; gap: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -370,7 +370,7 @@
 
   .time-picker-glass { display: flex; align-items: center; justify-content: center; background-color: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--border-radius-sm); padding: 2px 6px; height: 38px; box-sizing: border-box; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
   .time-picker-glass:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-  .time-picker-input-field { background: none !important; border: none !important; padding: 0 !important; width: 24px !important; text-align: center !important; font-size: 0.85rem !important; font-weight: bold !important; color: var(--text) !important; }
-  .time-picker-input-field:focus { outline: none !important; color: var(--accent) !important; }
+  .time-picker-input-field { background: none; border: none; padding: 0; width: 24px; text-align: center; font-size: 16px; font-weight: bold; color: var(--text); }
+  .time-picker-input-field:focus { outline: none; color: var(--accent); }
   .time-picker-separator { color: var(--text-muted); font-weight: bold; padding: 0 2px; }
 </style>

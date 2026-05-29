@@ -104,7 +104,7 @@
     border: none !important;
     color: var(--text) !important;
     font-family: var(--font-family) !important;
-    font-size: 0.75rem !important;
+    font-size: 0.75rem;
     font-weight: bold !important;
     cursor: pointer;
     padding: 0 16px 0 0 !important;
