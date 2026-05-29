@@ -75,6 +75,15 @@
     color: var(--text-muted);
   }
 
+  @media (max-width: 768px) {
+    .material-theme-selector label {
+      display: none;
+    }
+    .material-theme-selector {
+      padding: 6px 10px;
+    }
+  }
+
   .dropdown-wrapper {
     display: flex;
     align-items: center;

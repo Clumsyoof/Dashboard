@@ -315,13 +315,19 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  /* Lock document height so mobile browser address bar
+     showing/hiding never triggers a layout reflow */
+}
+
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-family);
   line-height: 1.5;
   transition: background-color 0.2s ease, color 0.2s ease;
-  overflow-x: hidden;
+  overflow: hidden; /* Scrolling happens inside main-content, not on body */
   font-size: 14px;
 }
 
@@ -371,11 +377,13 @@ a:hover {
   color: var(--accent-quaternary);
 }
 
-/* Google Material Outlined Surface Panels */
+/* Firefox < 113 doesn't support color-mix. Provide opaque fallbacks. */
 .tiling-panel {
+  background-color: var(--bg-panel); /* fallback */
   background-color: color-mix(in srgb, var(--bg-panel) 65%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); /* fallback */
   border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
   border-radius: var(--border-radius-lg);
   padding: 20px;
@@ -386,9 +394,12 @@ a:hover {
   transition: var(--transition);
 }
 
-.tiling-panel:hover {
-  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.18);
+/* Only apply hover effects on devices that actually support hover (not touch) */
+@media (hover: hover) and (pointer: fine) {
+  .tiling-panel:hover {
+    border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.18);
+  }
 }
 
 /* Panel Header - Google style section indicators */
@@ -429,12 +440,18 @@ button, .btn {
   font-weight: 700;
   transition: var(--transition);
   user-select: none;
+  /* Eliminate 300ms tap delay on touch devices */
+  touch-action: manipulation;
+  /* Minimum touch target height */
+  min-height: 36px;
 }
 
-button:hover, .btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background-color: var(--focus);
+@media (hover: hover) and (pointer: fine) {
+  button:hover, .btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: var(--focus);
+  }
 }
 
 button:active, .btn:active {
@@ -483,6 +500,16 @@ input[type="text"], input[type="number"], input[type="date"], select, textarea {
   font-size: 0.85rem;
   outline: none;
   transition: var(--transition);
+  /* Eliminate tap delay */
+  touch-action: manipulation;
+}
+
+/* iOS Safari zooms in on any input with font-size < 16px.
+   Force 16px on mobile to prevent that layout-breaking zoom. */
+@media (max-width: 768px) {
+  input[type="text"], input[type="number"], input[type="date"], select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
@@ -571,9 +598,10 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, 
 /* Core Layout Shell */
 .app-container {
   display: flex;
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
-  overflow-x: hidden;
+  /* Use 100% height (from locked html/body) rather than 100vh
+     so mobile address bar cannot trigger layout shifts */
+  height: 100%;
+  overflow: hidden;
 }
 
 .main-content {
@@ -582,16 +610,20 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, 
   flex-direction: column;
   padding: var(--gap);
   margin-left: 200px; /* Sidebar offset */
-  transition: var(--transition);
   min-width: 0; /* Prevent flex children from overflowing */
   max-width: 100%;
+  /* Scroll happens here, not on body */
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;
-    padding: 12px 12px 0 12px;
-    padding-bottom: calc(60px + 12px + env(safe-area-inset-bottom, 0px)); /* Bottom nav + safe area */
+    padding: 12px;
+    /* Leave room for fixed bottom nav + device safe area */
+    padding-bottom: calc(60px + 12px + env(safe-area-inset-bottom, 0px));
   }
 
   /* Reduce panel padding on mobile so content breathes */

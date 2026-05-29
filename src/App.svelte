@@ -269,5 +269,14 @@
   .bottom-footer {
     border-top: 1px dashed var(--border);
     padding-top: 14px;
+    margin-top: auto;
+  }
+
+  /* On mobile, sync is automatic — the footer is just noise and would sit
+     behind the fixed bottom nav bar anyway */
+  @media (max-width: 768px) {
+    .bottom-footer {
+      display: none;
+    }
   }
 </style>
