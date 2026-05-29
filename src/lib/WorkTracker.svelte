@@ -467,7 +467,21 @@
 
   @media (max-width: 600px) {
     .kanban-board {
-      grid-template-columns: 1fr;
+      /* On mobile, scroll horizontally through columns - much better UX than squashing */
+      display: flex;
+      overflow-x: auto;
+      gap: var(--gap);
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .kanban-column {
+      min-width: 260px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+    }
+    .metadata-row {
+      grid-template-columns: 1fr 1fr;
     }
   }
 

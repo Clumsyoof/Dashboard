@@ -230,13 +230,19 @@
     align-items: center;
     border-bottom: 1px double var(--border);
     padding-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   @media (max-width: 768px) {
     .top-status-bar {
       flex-direction: column;
       align-items: flex-start;
-      gap: 12px;
+      gap: 8px;
+    }
+    .top-status-actions {
+      width: 100%;
+      overflow-x: auto;
     }
   }
 

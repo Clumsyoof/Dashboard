@@ -359,7 +359,8 @@
     grid-template-rows: repeat(7, 10px);
     grid-auto-flow: column;
     gap: 3px;
-    width: 100%;
+    width: max-content; /* Let it overflow naturally inside the scroll container */
+    min-width: 100%;
     overflow-x: auto;
   }
 
@@ -414,7 +415,7 @@
   /* Grids and general widgets */
   .dashboard-grids {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
     gap: var(--gap);
   }
 

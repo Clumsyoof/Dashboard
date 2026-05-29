@@ -314,6 +314,14 @@
 
   .planner-dual-view { display: grid; grid-template-columns: 320px 1fr; gap: var(--gap); margin-top: var(--gap); }
   @media (max-width: 950px) { .planner-dual-view { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) {
+    .form-inputs { grid-template-columns: 1fr 1fr; }
+    .teams-day-timeline-card { height: 360px; }
+    .calendar-day { min-height: 56px; }
+    .calendar-blocks { max-height: 40px; }
+    .calendar-day-header { font-size: 0.55rem; }
+    .day-number { font-size: 0.6rem; }
+  }
 
   .teams-day-timeline-card { background-color: var(--bg); border: 1px solid var(--border); border-radius: var(--border-radius-md); padding: 12px; display: flex; flex-direction: column; height: 480px; }
   .timeline-title-badge { font-size: 0.7rem; font-weight: 800; color: var(--accent); letter-spacing: 0.05em; display: block; margin-bottom: 12px; text-align: center; }

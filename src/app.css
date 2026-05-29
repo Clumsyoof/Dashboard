@@ -572,6 +572,8 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, 
 .app-container {
   display: flex;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  overflow-x: hidden;
 }
 
 .main-content {
@@ -581,12 +583,30 @@ input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, 
   padding: var(--gap);
   margin-left: 200px; /* Sidebar offset */
   transition: var(--transition);
+  min-width: 0; /* Prevent flex children from overflowing */
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;
-    padding-top: var(--gap);
-    padding-bottom: 80px; /* Offset for modern mobile bottom navigation bar */
+    padding: 12px 12px 0 12px;
+    padding-bottom: calc(60px + 12px + env(safe-area-inset-bottom, 0px)); /* Bottom nav + safe area */
+  }
+
+  /* Reduce panel padding on mobile so content breathes */
+  .tiling-panel {
+    padding: 14px;
+  }
+
+  /* Reduce font size of panel titles on mobile */
+  .panel-title {
+    font-size: 0.8rem;
+  }
+
+  /* Wrap buttons better on mobile */
+  button, .btn {
+    font-size: 0.78rem;
+    padding: 7px 12px;
   }
 }
