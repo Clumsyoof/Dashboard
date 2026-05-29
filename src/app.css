@@ -1,0 +1,592 @@
+/* Comic Mono Hacker Typographic Base & Global Styling */
+@import url('https://cdn.jsdelivr.net/gh/dtinth/comic-mono-font@1.0/index.css');
+
+:root {
+  /* Default Theme (Tokyo Night hybrid) */
+  --bg: #1a1b26;
+  --bg-panel: #16161f;
+  --text: #a9b1d6;
+  --text-muted: #565f89;
+  --border: #292e42;
+  --accent: #7dcfff; /* cyan */
+  --accent-secondary: #f7768e; /* coral/red */
+  --accent-tertiary: #9ece6a; /* green */
+  --accent-quaternary: #bb9af3; /* purple */
+  --success: var(--accent-tertiary); /* Semantic success color (usually green) */
+  --danger: var(--accent-secondary); /* Semantic danger color (usually red) */
+  --focus: rgba(125, 207, 255, 0.08);
+  --font-family: 'Comic Mono', 'Comic Shanns', 'Comic Sans MS', monospace, sans-serif;
+  
+  /* Google Material Design 3 Parameters */
+  --border-radius-lg: 16px;
+  --border-radius-md: 12px;
+  --border-radius-sm: 8px;
+  --gap: 16px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. Catppuccin Mocha */
+.theme-mocha {
+  --bg: #1e1e2e;
+  --bg-panel: #181825;
+  --text: #cdd6f4;
+  --text-muted: #6c7086;
+  --border: #313244;
+  --accent: #cba6f7; /* mauve */
+  --accent-secondary: #f38ba8; /* red */
+  --accent-tertiary: #a6e3a1; /* green */
+  --accent-quaternary: #89b4fa; /* blue */
+  --focus: rgba(203, 166, 247, 0.08);
+}
+
+/* 2. Kanagawa Dragon (Soft & Cozy Ink Dark) */
+.theme-kanagawa {
+  --bg: #181820;
+  --bg-panel: #1f1f28;
+  --text: #dcd7ba;
+  --text-muted: #727169;
+  --border: #2a2a37;
+  --accent: #e6c384; /* soft gold */
+  --accent-secondary: #c34043; /* red */
+  --accent-tertiary: #76946a; /* forest green */
+  --accent-quaternary: #957fb8; /* soft violet */
+  --focus: rgba(230, 195, 132, 0.08);
+}
+
+/* 3. Gruvbox Material Dark */
+.theme-gruvbox {
+  --bg: #1d2021;
+  --bg-panel: #282828;
+  --text: #ebdbb2;
+  --text-muted: #928374;
+  --border: #3c3836;
+  --accent: #fabd2f; /* yellow */
+  --accent-secondary: #fb4934; /* red */
+  --accent-tertiary: #b8bb26; /* green */
+  --accent-quaternary: #fe8019; /* orange */
+  --focus: rgba(250, 189, 47, 0.08);
+}
+
+/* 4. Rose Pine Main (Retro Cosmic) */
+.theme-rosepine {
+  --bg: #191724;
+  --bg-panel: #1f1d2e;
+  --text: #e0def4;
+  --text-muted: #908caa;
+  --border: #26233a;
+  --accent: #ebbcba; /* rose */
+  --accent-secondary: #eb6f92; /* love */
+  --accent-tertiary: #9ccfd8; /* pine */
+  --accent-quaternary: #c4a7e7; /* iris */
+  --focus: rgba(235, 188, 186, 0.08);
+}
+
+/* 5. Nordic Ice */
+.theme-nord {
+  --bg: #242933;
+  --bg-panel: #2e3440;
+  --text: #d8dee9;
+  --text-muted: #4c566a;
+  --border: #3b4252;
+  --accent: #81a1c1; /* frost blue */
+  --accent-secondary: #bf616a; /* red */
+  --accent-tertiary: #a3be8c; /* green */
+  --accent-quaternary: #b48ead; /* purple */
+  --focus: rgba(129, 161, 193, 0.08);
+}
+
+/* 6. Tokyo Night Deep */
+.theme-tokyonight {
+  --bg: #1a1b26;
+  --bg-panel: #16161f;
+  --text: #a9b1d6;
+  --text-muted: #565f89;
+  --border: #292e42;
+  --accent: #7dcfff; /* cyan */
+  --accent-secondary: #f7768e; /* red */
+  --accent-tertiary: #9ece6a; /* green */
+  --accent-quaternary: #bb9af3; /* purple */
+  --focus: rgba(125, 207, 255, 0.08);
+}
+
+/* 7. Everforest Glade */
+.theme-everforest {
+  --success: var(--accent); /* In Everforest, accent is green */
+  --danger: var(--accent-secondary);
+  --bg: #333c43;
+  --bg-panel: #2b3339;
+  --text: #d3c6aa;
+  --text-muted: #859289;
+  --border: #3a454a;
+  --accent: #a7c080; /* green */
+  --accent-secondary: #e67e80; /* red */
+  --accent-tertiary: #dbbc7f; /* yellow */
+  --accent-quaternary: #7fbbb3; /* teal */
+  --focus: rgba(167, 192, 128, 0.08);
+}
+
+/* 8. Rose Pine Moon (Deep Velvet) */
+.theme-rosepinemoon {
+  --bg: #232136;
+  --bg-panel: #2a283e;
+  --text: #e0def4;
+  --text-muted: #908caa;
+  --border: #3e3a53;
+  --accent: #ea9a97; /* rose */
+  --accent-secondary: #eb6f92; /* love */
+  --accent-tertiary: #3e8fb0; /* pine */
+  --accent-quaternary: #c4a7e7; /* iris */
+  --focus: rgba(234, 154, 151, 0.08);
+}
+
+/* 9. Rose Pine Dawn (Soft Light) */
+.theme-rosepinedawn {
+  --bg: #faf4ed;
+  --bg-panel: #fffaf3;
+  --text: #575279;
+  --text-muted: #9893a5;
+  --border: #f2e9de;
+  --accent: #d7827e; /* rose */
+  --accent-secondary: #b9c0e0; /* soft blue */
+  --accent-tertiary: #286983; /* pine */
+  --accent-quaternary: #907aa9; /* iris */
+  --focus: rgba(215, 130, 126, 0.08);
+}
+
+/* 10. Catppuccin Macchiato (Warm Muted Deep) */
+.theme-macchiato {
+  --bg: #24273a;
+  --bg-panel: #1e2030;
+  --text: #cdd6f4;
+  --text-muted: #5b6078;
+  --border: #363a4f;
+  --accent: #f5bde6; /* pink */
+  --accent-secondary: #ee99a0; /* red */
+  --accent-tertiary: #a6da95; /* green */
+  --accent-quaternary: #8bd5ca; /* teal */
+  --focus: rgba(245, 189, 230, 0.08);
+}
+
+/* 11. Catppuccin Frappe (Muted Soft Gray) */
+.theme-frappe {
+  --bg: #303446;
+  --bg-panel: #292c3c;
+  --text: #c6d0f5;
+  --text-muted: #626880;
+  --border: #414559;
+  --accent: #f2d5cf; /* rosewater */
+  --accent-secondary: #e78284; /* red */
+  --accent-tertiary: #a6d189; /* green */
+  --accent-quaternary: #85c1dc; /* sapphire */
+  --focus: rgba(242, 213, 207, 0.08);
+}
+
+/* 12. Catppuccin Latte (Cozy Pure Light) */
+.theme-latte {
+  --bg: #eff1f5;
+  --bg-panel: #e6e9ef;
+  --text: #4c4f69;
+  --text-muted: #9ca0b0;
+  --border: #ccd0da;
+  --accent: #8839ef; /* mauve */
+  --accent-secondary: #d20f39; /* red */
+  --accent-tertiary: #40a02b; /* green */
+  --accent-quaternary: #1e66f5; /* blue */
+  --focus: rgba(136, 57, 239, 0.08);
+}
+
+/* 13. Gruvbox Soft (Cozy Soft Warm Retro) */
+.theme-gruvboxsoft {
+  --bg: #32302f;
+  --bg-panel: #282828;
+  --text: #d4be98;
+  --text-muted: #897f73;
+  --border: #3c3836;
+  --accent: #d8a657; /* soft gold */
+  --accent-secondary: #ea6962; /* soft red */
+  --accent-tertiary: #a9b665; /* green */
+  --accent-quaternary: #d3869b; /* warm purple */
+  --focus: rgba(216, 166, 87, 0.08);
+}
+
+/* 14. Everforest Soft (Organic Autumn Forest) */
+.theme-everforestsoft {
+  --bg: #2d353b;
+  --bg-panel: #232a2e;
+  --text: #d3c6aa;
+  --text-muted: #7a8478;
+  --border: #3d484d;
+  --accent: #dbbc7f; /* warm amber */
+  --accent-secondary: #e67e80; /* red */
+  --accent-tertiary: #a7c080; /* green */
+  --accent-quaternary: #7fbbb3; /* blue */
+  --focus: rgba(219, 188, 127, 0.08);
+}
+
+/* 15. Nord Soft (Polar Night Cozy Gray) */
+.theme-nordsoft {
+  --bg: #2e3440;
+  --bg-panel: #3b4252;
+  --text: #eceff4;
+  --text-muted: #616e88;
+  --border: #434c5e;
+  --accent: #88c0d0; /* frost blue */
+  --accent-secondary: #bf616a; /* red */
+  --accent-tertiary: #a3be8c; /* green */
+  --accent-quaternary: #b48ead; /* purple */
+  --focus: rgba(136, 192, 208, 0.08);
+}
+
+/* 16. Dracula Premium (Cyber Dark) */
+.theme-dracula {
+  --bg: #282a36;
+  --bg-panel: #1e1f29;
+  --text: #f8f8f2;
+  --text-muted: #6272a4;
+  --border: #44475a;
+  --accent: #bd93f9; /* purple */
+  --accent-secondary: #ff5555; /* red */
+  --accent-tertiary: #50fa7b; /* green */
+  --accent-quaternary: #ff79c6; /* pink */
+  --focus: rgba(189, 147, 249, 0.08);
+}
+
+/* 17. One Dark Pro */
+.theme-onedark {
+  --bg: #282c34;
+  --bg-panel: #21252b;
+  --text: #abb2bf;
+  --text-muted: #5c6370;
+  --border: #3e4451;
+  --accent: #61afef; /* blue */
+  --accent-secondary: #e06c75; /* red */
+  --accent-tertiary: #98c379; /* green */
+  --accent-quaternary: #c678dd; /* purple */
+  --focus: rgba(97, 175, 239, 0.08);
+}
+
+/* 18. Aura Minimal (Outerspace Deep Purple) */
+.theme-aura {
+  --bg: #15141b;
+  --bg-panel: #1a1923;
+  --text: #edecee;
+  --text-muted: #6d6d6d;
+  --border: #2d2b3b;
+  --accent: #a277ff; /* purple */
+  --accent-secondary: #ff6767; /* red */
+  --accent-tertiary: #61ffca; /* green */
+  --accent-quaternary: #e5c07b; /* gold */
+  --focus: rgba(162, 119, 255, 0.08);
+}
+
+/* 19. Solarized Dark Retro */
+.theme-solarizeddark {
+  --bg: #002b36;
+  --bg-panel: #073642;
+  --text: #839496;
+  --text-muted: #586e75;
+  --border: #083c4b;
+  --accent: #2aa198; /* cyan */
+  --accent-secondary: #dc322f; /* red */
+  --accent-tertiary: #859900; /* green */
+  --accent-quaternary: #268bd2; /* blue */
+  --focus: rgba(42, 161, 152, 0.08);
+}
+
+/* 20. Tokyo Night Storm */
+.theme-tokyonightstorm {
+  --bg: #24283b;
+  --bg-panel: #1f2335;
+  --text: #a9b1d6;
+  --text-muted: #565f89;
+  --border: #292e42;
+  --accent: #7dcfff; /* cyan */
+  --accent-secondary: #f7768e; /* red */
+  --accent-tertiary: #9ece6a; /* green */
+  --accent-quaternary: #bb9af3; /* purple */
+  --focus: rgba(125, 207, 255, 0.08);
+}
+
+/* Core Document Elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
+  font-size: 14px;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-panel);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--border-radius-md);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Typography elements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover {
+  color: var(--accent-quaternary);
+}
+
+/* Google Material Outlined Surface Panels */
+.tiling-panel {
+  background-color: color-mix(in srgb, var(--bg-panel) 65%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.tiling-panel:hover {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* Panel Header - Google style section indicators */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.panel-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Google Outlined Buttons */
+button, .btn {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-family);
+  padding: 8px 16px;
+  border-radius: 20px; /* MD3 highly rounded pills */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: var(--transition);
+  user-select: none;
+}
+
+button:hover, .btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: var(--focus);
+}
+
+button:active, .btn:active {
+  transform: scale(0.97);
+}
+
+button.primary {
+  border-color: var(--accent);
+  color: var(--bg-panel);
+  background-color: var(--accent);
+}
+
+button.primary:hover {
+  background-color: var(--bg-panel);
+  color: var(--accent);
+}
+
+button.danger {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+button.danger:hover {
+  background-color: var(--accent-secondary);
+  color: var(--bg-panel);
+}
+
+button:disabled, .btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--border) !important;
+  color: var(--text-muted) !important;
+  background-color: var(--bg) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Outlined Google form elements */
+input[type="text"], input[type="number"], input[type="date"], select, textarea {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-family);
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Custom Dropdown select wrapper */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* GitHub Heatmap Grid style variables */
+.contrib-grid-container {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-md);
+  padding: 12px;
+  background-color: var(--bg);
+}
+
+/* MS Teams schedule blocks styling */
+.teams-day-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-left: 1px solid var(--border);
+  margin-left: 50px;
+  padding-left: 16px;
+  height: 500px;
+  overflow-y: auto;
+}
+
+.teams-hour-row {
+  display: flex;
+  height: 60px;
+  align-items: flex-start;
+  position: relative;
+  border-bottom: 1px dashed var(--border);
+}
+
+.teams-hour-label {
+  position: absolute;
+  left: -60px;
+  top: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--text-muted);
+  width: 50px;
+  text-align: right;
+}
+
+/* Status Chips */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 12px; /* Pill shape */
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+}
+
+.badge.accent {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.badge.success {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.badge.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.badge.warning {
+  border-color: var(--accent-quaternary);
+  color: var(--accent-quaternary);
+}
+
+/* Core Layout Shell */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--gap);
+  margin-left: 200px; /* Sidebar offset */
+  transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: var(--gap);
+    padding-bottom: 80px; /* Offset for modern mobile bottom navigation bar */
+  }
+}
