@@ -21,18 +21,19 @@
 
 <style>
   .schedule-pomodoro-layout {
-    display: grid;
-    grid-template-columns: 340px minmax(0, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--gap);
+    width: 100%;
   }
 
-  .schedule-pomodoro-layout > * {
+  .schedule-pomodoro-layout > :first-child {
+    flex: 1 1 340px;
+    min-width: 300px;
+  }
+
+  .schedule-pomodoro-layout > :last-child {
+    flex: 2 1 500px;
     min-width: 0;
-  }
-
-  @media (max-width: 1100px) {
-    .schedule-pomodoro-layout {
-      grid-template-columns: 1fr;
-    }
   }
 </style>

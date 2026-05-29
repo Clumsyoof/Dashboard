@@ -291,19 +291,20 @@
   }
 
   .tracker-sidebar-layout {
-    display: grid;
-    grid-template-columns: 240px minmax(0, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--gap);
+    width: 100%;
   }
 
-  .tracker-projects, .tracker-board {
+  .tracker-projects {
+    flex: 1 1 240px;
+    min-width: 200px;
+  }
+
+  .tracker-board {
+    flex: 3 1 500px;
     min-width: 0;
-  }
-
-  @media (max-width: 900px) {
-    .tracker-sidebar-layout {
-      grid-template-columns: 1fr;
-    }
   }
 
   .action-btn {
@@ -444,10 +445,14 @@
   }
 
   .metadata-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) auto;
+    display: flex;
+    flex-wrap: wrap;
     gap: 6px;
     align-items: center;
+  }
+
+  .metadata-row > * {
+    flex: 1 1 130px;
   }
 
   .add-task-btn {
@@ -483,12 +488,6 @@
       min-width: 260px;
       scroll-snap-align: start;
       flex-shrink: 0;
-    }
-    .metadata-row {
-      grid-template-columns: 1fr 1fr;
-    }
-    .kanban-column {
-      min-height: 300px;
     }
   }
 

@@ -318,16 +318,16 @@
   .form-toggle-btn:hover { background: var(--bg); }
 
   .block-form { background-color: var(--bg); border: 1px solid var(--border); border-radius: var(--border-radius-md); padding: 14px; }
-  .form-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
-  .input-field { display: flex; flex-direction: column; gap: 4px; }
+  .planner-dual-view { display: flex; flex-wrap: wrap; gap: var(--gap); margin-top: var(--gap); width: 100%; }
+  .planner-dual-view > :first-child { flex: 1 1 320px; min-width: 250px; }
+  .planner-dual-view > :last-child { flex: 2 1 400px; min-width: 0; }
+  .form-inputs { display: flex; flex-wrap: wrap; gap: 8px; }
+  .input-field { flex: 1 1 130px; display: flex; flex-direction: column; gap: 4px; }
   .input-field label { font-size: 0.65rem; font-weight: bold; color: var(--text-muted); }
   .add-block-btn { width: 100%; }
-
-  .planner-dual-view { display: grid; grid-template-columns: 320px 1fr; gap: var(--gap); margin-top: var(--gap); }
-  @media (max-width: 950px) { .planner-dual-view { grid-template-columns: 1fr; } }
   @media (max-width: 600px) {
     .form-toggle-btn { display: block; }
-    .form-inputs { grid-template-columns: 1fr; }
+    .form-inputs { display: flex; flex-direction: column; }
     .teams-day-timeline-card { height: min(360px, 50vh); }
     .calendar-day { min-height: 56px; }
     .calendar-blocks { max-height: 40px; }

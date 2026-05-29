@@ -462,17 +462,22 @@
   }
 
   .vault-workspace {
-    display: grid;
-    grid-template-columns: 240px 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--gap);
     height: calc(100dvh - 120px);
+    width: 100%;
   }
 
-  @media (max-width: 768px) {
-    .vault-workspace {
-      grid-template-columns: 1fr;
-      height: auto;
-    }
+  .vault-sidebar {
+    flex: 1 1 240px;
+    min-width: 200px;
+    height: 100%;
+  }
+
+  .vault-body {
+    flex: 3 1 400px;
+    min-width: 0;
   }
 
   .vault-sidebar {
