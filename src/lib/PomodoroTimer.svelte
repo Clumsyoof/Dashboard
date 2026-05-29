@@ -316,8 +316,16 @@
   .mode-tabs button { flex-grow: 1; border: none; background: none; font-size: 0.75rem; padding: 8px; border-radius: 0; color: var(--text-muted); }
   .mode-tabs button.active { background-color: var(--accent); color: var(--bg-panel); font-weight: bold; border-radius: 20px; }
 
+  @media (max-width: 600px) {
+    .mode-tabs button { font-size: 0.65rem; padding: 6px 4px; }
+    .schema-inputs { grid-template-columns: 1fr !important; }
+    .chart-header { flex-direction: column; align-items: flex-start; }
+    .chart-filters { flex-wrap: wrap; }
+    .chart-range-tabs button { font-size: 0.58rem; padding: 2px 4px; }
+  }
+
   .timer-dial-container { display: flex; justify-content: center; margin-bottom: 20px; }
-  .timer-dial { width: 220px; height: 120px; border: 1px solid var(--border); border-radius: var(--border-radius-lg); background-color: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .timer-dial { width: min(220px, 100%); height: 120px; border: 1px solid var(--border); border-radius: var(--border-radius-lg); background-color: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .timer-label { font-size: 0.75rem; color: var(--text-muted); font-weight: bold; letter-spacing: 0.05em; }
   .timer-countdown { font-size: 2.8rem; font-weight: bold; color: var(--accent); line-height: 1.1; }
   .timer-pct-bar { position: absolute; bottom: 0; left: 0; height: 4px; background-color: var(--accent-quaternary); transition: width 1s linear; }

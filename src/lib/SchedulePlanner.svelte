@@ -21,6 +21,7 @@
   let expandedHolidayIds: string[] = [];
   let currentMonth = new Date().getMonth();
   let currentYear = new Date().getFullYear();
+  let showForm = true; // collapsible on mobile
 
   // ── Custom 24-hour time picker ───────────────────────────────────────────────
   let startHour = '09', startMin = '00', endHour = '10', endMin = '30';
@@ -148,9 +149,15 @@
 <div class="schedule-planner tiling-panel">
   <div class="panel-header">
     <div class="panel-title">Planner</div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <button class="form-toggle-btn" on:click={() => showForm = !showForm} title="Toggle add form">
+      {showForm ? '▲ Hide' : '▼ Add Block'}
+    </button>
   </div>
 
   <!-- Block Scaffolder Form -->
+  {#if showForm}
   <div class="block-form mb-4">
     <div class="form-inputs">
       <div class="input-field">
@@ -217,6 +224,7 @@
       <button class="primary add-block-btn mt-2" on:click={addScheduleBlock}><Plus size={14} /><span>Add</span></button>
     {/if}
   </div>
+  {/if}
 
   <div class="planner-dual-view">
     <!-- Day Timeline -->
@@ -306,6 +314,9 @@
   :global(.spin) { animation: spin 1s linear infinite; }
   @keyframes spin { 100% { transform: rotate(360deg); } }
 
+  .form-toggle-btn { display: none; background: none; border: 1px solid var(--border); border-radius: var(--border-radius-sm); padding: 4px 8px; font-size: 0.7rem; color: var(--text); cursor: pointer; }
+  .form-toggle-btn:hover { background: var(--bg); }
+
   .block-form { background-color: var(--bg); border: 1px solid var(--border); border-radius: var(--border-radius-md); padding: 14px; }
   .form-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
   .input-field { display: flex; flex-direction: column; gap: 4px; }
@@ -315,15 +326,16 @@
   .planner-dual-view { display: grid; grid-template-columns: 320px 1fr; gap: var(--gap); margin-top: var(--gap); }
   @media (max-width: 950px) { .planner-dual-view { grid-template-columns: 1fr; } }
   @media (max-width: 600px) {
-    .form-inputs { grid-template-columns: 1fr 1fr; }
-    .teams-day-timeline-card { height: 360px; }
+    .form-toggle-btn { display: block; }
+    .form-inputs { grid-template-columns: 1fr; }
+    .teams-day-timeline-card { height: min(360px, 50vh); }
     .calendar-day { min-height: 56px; }
     .calendar-blocks { max-height: 40px; }
     .calendar-day-header { font-size: 0.55rem; }
     .day-number { font-size: 0.6rem; }
   }
 
-  .teams-day-timeline-card { background-color: var(--bg); border: 1px solid var(--border); border-radius: var(--border-radius-md); padding: 12px; display: flex; flex-direction: column; height: 480px; }
+  .teams-day-timeline-card { background-color: var(--bg); border: 1px solid var(--border); border-radius: var(--border-radius-md); padding: 12px; display: flex; flex-direction: column; height: min(480px, 60vh); }
   .timeline-title-badge { font-size: 0.7rem; font-weight: 800; color: var(--accent); letter-spacing: 0.05em; display: block; margin-bottom: 12px; text-align: center; }
   .teams-hour-scroller { flex-grow: 1; overflow-y: auto; position: relative; padding-left: 65px; border-left: 1px dashed var(--border); }
   .teams-timeline-grid-relative { position: relative; height: 900px; }

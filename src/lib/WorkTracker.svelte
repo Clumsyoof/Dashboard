@@ -483,6 +483,9 @@
     .metadata-row {
       grid-template-columns: 1fr 1fr;
     }
+    .kanban-column {
+      min-height: 300px;
+    }
   }
 
   .kanban-column {
