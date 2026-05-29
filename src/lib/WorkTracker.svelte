@@ -292,8 +292,12 @@
 
   .tracker-sidebar-layout {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 240px minmax(0, 1fr);
     gap: var(--gap);
+  }
+
+  .tracker-projects, .tracker-board {
+    min-width: 0;
   }
 
   @media (max-width: 900px) {

@@ -22,8 +22,12 @@
 <style>
   .schedule-pomodoro-layout {
     display: grid;
-    grid-template-columns: 340px 1fr;
+    grid-template-columns: 340px minmax(0, 1fr);
     gap: var(--gap);
+  }
+
+  .schedule-pomodoro-layout > * {
+    min-width: 0;
   }
 
   @media (max-width: 1100px) {
