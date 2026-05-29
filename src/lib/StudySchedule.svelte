@@ -30,10 +30,12 @@
   .schedule-pomodoro-layout > :first-child {
     flex: 1 1 340px;
     min-width: 300px;
+    max-width: 100%;
   }
 
   .schedule-pomodoro-layout > :last-child {
     flex: 2 1 500px;
     min-width: 0;
+    max-width: 100%;
   }
 </style>

@@ -300,11 +300,15 @@
   .tracker-projects {
     flex: 1 1 240px;
     min-width: 200px;
+    max-width: 100%;
   }
 
   .tracker-board {
     flex: 3 1 500px;
     min-width: 0;
+    max-width: 100%;
+    /* Firefox requires overflow hidden on flex children to prevent nested flex scrolling from blowing out width */
+    overflow-x: hidden;
   }
 
   .action-btn {
